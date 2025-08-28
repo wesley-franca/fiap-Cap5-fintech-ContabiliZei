@@ -1,0 +1,135 @@
+/* styles.css */
+:root {
+  --bg-main: #f8fafc;
+  --text-main: #1e293b;
+  --title: #1e3a8a;
+
+  --income: #16a34a;
+  --expense: #dc2626;
+
+  --card-bg: #ffffff;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --radius: 12px;
+  --spacing: 1rem;
+  --font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-main);
+  background: var(--bg-main);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--title);
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.transactions {
+  list-style: none;
+  display: grid;
+  row-gap: 0.75rem;
+}
+
+.transaction {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  column-gap: 0.75rem;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.transaction .value {
+  font-weight: 600;
+}
+
+.transaction.income .date,
+.transaction.income .value {
+  color: var(--income);
+}
+
+.transaction.expense .date,
+.transaction.expense .value {
+  color: var(--expense);
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  flex: 1 1 200px;
+  padding: 0.9rem 1.2rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn.income {
+  background: var(--income);
+}
+
+.btn.expense {
+  background: var(--expense);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-main: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #e2e8f0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+}
